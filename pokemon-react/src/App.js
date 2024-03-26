@@ -5,6 +5,7 @@ import Locations from './components/Locations';
 
 function App() {
   const [pokemonLocation, setPokemonLocation] = useState(null);
+  const [selectedCity, setSelectedCity] = useState(null);
   
   useEffect(() => {
     async function fetchData(pokemonLocation) {
@@ -27,8 +28,11 @@ function App() {
     <div className="App">
       <h1>Pokemon Towns</h1>
       {pokemonLocation && pokemonLocation.map((location, index) => (
-        <div key={index}>
-          <Locations location={convertCityNames(location.name)} />
+        <div key={index} onClick={() => {
+          setSelectedCity(location.url);
+          console.log(selectedCity);
+          }}>
+          <Locations  location={convertCityNames(location.name)} />
         </div>
       ))}
     </div>
