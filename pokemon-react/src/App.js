@@ -43,7 +43,7 @@ function App() {
             }} >RUN AWAY </button></div>) :
           selectedCityURL ?
             (<><h1>Town areas</h1>
-              <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/>
+              <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL}/>
               <button onClick={() => {
                 setSelectedAreaURL(null);
                 setSelectedCityURL(null);

@@ -53,7 +53,6 @@ function Battle({ chosenPokemon, enemy, setChosenPokemon, setSelectedCityURL, se
             <>
               <img src={rocketGif} alt=''></img>
               <h2>Yeay!!! You are Great!</h2>
-              {/* <img src={chosenPokemon.sprites.versions["generation-v"]["black-white"]["animated"]["front_default"]} alt=''></img> */}
               <h2>You defeated {enemy.name[0].toUpperCase() + enemy.name.substring(1)}</h2>
               <button onClick={() => {
                 setChosenPokemon(null);
@@ -64,7 +63,6 @@ function Battle({ chosenPokemon, enemy, setChosenPokemon, setSelectedCityURL, se
               <>
                 <img src={rocketGif} alt=''></img>
                 <h2>Yeay!!! You are Great!</h2>
-                {/* <img src={enemy.sprites.versions["generation-v"]["black-white"]["animated"]["front_default"]} alt=''></img> */}
                 <h2>You captured {enemy.name[0].toUpperCase() + enemy.name.substring(1)}</h2>
                 <button onClick={() => {
                   setChosenPokemon(null);
