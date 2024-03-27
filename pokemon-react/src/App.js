@@ -4,8 +4,8 @@ import Locations from './components/Locations';
 
 function App() {
   const [pokemonLocation, setPokemonLocation] = useState(null);
-  const [selectedCity, setSelectedCity] = useState(null);
-  
+  const [selectedCityURL, setSelectedCityURL] = useState(null);
+
   useEffect(() => {
     async function fetchData(pokemonLocation) {
       const response = await fetch(pokemonLocation);
@@ -14,12 +14,14 @@ function App() {
       return data.results;
     }
     fetchData('https://pokeapi.co/api/v2/location');
-  }, [])
-  
+  }, []);
+
   return (
     <div className="App">
       <h1>Pokemon Towns</h1>
-      {pokemonLocation && <Locations locations={pokemonLocation}/>}
+      {selectedCityURL ?
+        (<div>{selectedCityURL}</div>) :
+        (pokemonLocation && <Locations locations={pokemonLocation} selectedCityURL={selectedCityURL} setSelectedCityURL={setSelectedCityURL}/>)}
     </div>
   );
 }

@@ -1,5 +1,4 @@
-
-import React from 'react'
+import React from 'react';
 
 function convertCityNames(pokemonLocation) {
   const replaceLocName = pokemonLocation.replace('-', ' ');
@@ -9,14 +8,20 @@ function convertCityNames(pokemonLocation) {
 
 export default function Locations(props) {
   const locations = props.locations;
+  const setSelectedCityURL = props.setSelectedCityURL;
+  const selectedCityURL = props.selectedCityURL;
+
 
   return (
     <div>
       {locations.map((location, index) => (
-        <div key={index} onClick={() => console.log(location)}>
+        <div key={index} onClick={() => {
+          setSelectedCityURL(location.url);
+          console.log(selectedCityURL);
+        }}>
           <h2>{convertCityNames(location.name)}</h2>
         </div>
       ))}
     </div>
-  )
+  );
 }
