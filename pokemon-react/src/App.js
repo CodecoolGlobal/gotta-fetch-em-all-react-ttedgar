@@ -39,14 +39,15 @@ function App() {
               setSelectedAreaURL(null);
               setSelectedCityURL(null);
               setChosenPokemon(null);
-            }} >Fussatok bolondok</button></div>) :
+              setEnemy(null);
+            }} >RUN AWAY </button></div>) :
           selectedCityURL ?
             (<><h1>Town areas</h1>  
               <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/>
               <button onClick={() => {
                 setSelectedAreaURL(null);
                 setSelectedCityURL(null);
-              }} >I'm lost lol. Go back</button> </>)  :
+              }}> Go back </button> </>)  :
             (pokemonLocation &&
           (<><h1>Pokemon Towns</h1>
             <Locations locations={pokemonLocation} setSelectedCityURL={setSelectedCityURL}/></>))}
