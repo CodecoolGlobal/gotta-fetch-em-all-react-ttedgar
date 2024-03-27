@@ -34,7 +34,13 @@ function App() {
         </div>) :
         selectedAreaURL ?
           (<div><Encounter selectedAreaURL={selectedAreaURL} setEnemy={setEnemy}/>
-            <Starters setChosenPokemon={setChosenPokemon} capturedPoke={capturedPoke}/></div>) :
+            <Starters setChosenPokemon={setChosenPokemon} capturedPoke={capturedPoke}/>
+            <button className='runButton' onClick={() => {
+              setSelectedAreaURL(null);
+              setSelectedCityURL(null);
+              setChosenPokemon(null);
+              setEnemy(null);
+            }} >Fussatok bolondok</button></div>) :
           selectedCityURL ?
             (<><h1>Town areas</h1>
               <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/>
