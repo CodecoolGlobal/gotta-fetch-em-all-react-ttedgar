@@ -4,12 +4,14 @@ import Locations from './components/Locations';
 import Areas from './components/Areas';
 import Encounter from './components/Encounter';
 import Starters from './components/Starters';
+import Battle from './components/Battle';
 
 
 function App() {
   const [pokemonLocation, setPokemonLocation] = useState(null);
   const [selectedCityURL, setSelectedCityURL] = useState(null);
   const [selectedAreaURL, setSelectedAreaURL] = useState(null);
+  const [chosenPokemon, setChosenPokemon] = useState(null);
 
   useEffect(() => {
     async function fetchData(pokemonLocation) {
@@ -23,17 +25,21 @@ function App() {
 
   return (
     <div className="App">
-      {selectedAreaURL ?
-        (<div><Encounter selectedAreaURL={selectedAreaURL}/>
-          <Starters/></div>) :
-        selectedCityURL ?
-          (<><h1>Town areas</h1>
-            <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/>
-            <button onClick={() => {
-              setSelectedAreaURL(null);
-              setSelectedCityURL(null);
-            }} >I'm lost lol. Go back</button> </>)  :
-          (pokemonLocation &&
+      { chosenPokemon ?
+        (<div>
+          <Battle chosenPokemon={chosenPokemon}/>
+        </div>) :
+        selectedAreaURL ?
+          (<div><Encounter selectedAreaURL={selectedAreaURL}/>
+            <Starters setChosenPokemon={setChosenPokemon}/></div>) :
+          selectedCityURL ?
+            (<><h1>Town areas</h1>
+              <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/>
+              <button onClick={() => {
+                setSelectedAreaURL(null);
+                setSelectedCityURL(null);
+              }} >I'm lost lol. Go back</button> </>)  :
+            (pokemonLocation &&
           (<><h1>Pokemon Towns</h1>
             <Locations locations={pokemonLocation} setSelectedCityURL={setSelectedCityURL}/></>))}
     </div>
