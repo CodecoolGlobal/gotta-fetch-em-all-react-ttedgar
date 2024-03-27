@@ -35,7 +35,7 @@ function App() {
         selectedAreaURL ?
           (<div><Encounter selectedAreaURL={selectedAreaURL} setEnemy={setEnemy}/>
             <Starters setChosenPokemon={setChosenPokemon} capturedPokes={capturedPokes}/>
-            <button onClick={() => {
+            <button className='battleRunButton' onClick={() => {
               setSelectedAreaURL(null);
               setSelectedCityURL(null);
               setChosenPokemon(null);
