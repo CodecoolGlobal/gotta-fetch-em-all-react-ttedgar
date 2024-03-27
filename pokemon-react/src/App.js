@@ -1,6 +1,8 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import Locations from './components/Locations';
+import Areas from './components/Areas';
+
 
 function App() {
   const [pokemonLocation, setPokemonLocation] = useState(null);
@@ -20,7 +22,7 @@ function App() {
     <div className="App">
       <h1>Pokemon Towns</h1>
       {selectedCityURL ?
-        (<div>{selectedCityURL}</div>) :
+        (<Areas selectedCityURL={selectedCityURL}/>) :
         (pokemonLocation && <Locations locations={pokemonLocation} selectedCityURL={selectedCityURL} setSelectedCityURL={setSelectedCityURL}/>)}
     </div>
   );
