@@ -8,7 +8,7 @@ function convertCityNames(area) {
 }
 
 
-function Areas( {selectedCityURL} ) {
+function Areas( {selectedCityURL, setSelectedAreaURL, selectedAreaURL} ) {
   const [areas, setAreas] = useState([]);
 
   useEffect(() => {
@@ -24,11 +24,19 @@ function Areas( {selectedCityURL} ) {
 
   return (
     <div>
-      {areas.map((area) => (
-        <div key={area.name}>
-          <h2> {convertCityNames(area.name)} </h2>
+      {areas.length ?
+        areas.map((area) => (
+          <div key={area.name} onClick={() => {
+            setSelectedAreaURL(area.url);
+            console.log(selectedAreaURL);
+          }}>
+            <h2> {convertCityNames(area.name)} </h2>
+          </div>
+        )) :
+        <div>
+          <h2> Location has no pokemons </h2>
         </div>
-      ))}
+      }
     </div>
   );
 }
