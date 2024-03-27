@@ -18,18 +18,18 @@ function Battle({ chosenPokemon, enemy, setChosenPokemon, setSelectedCityURL, se
         (<><div className="yourPokemon">
           <img src={chosenPokemon.sprites.other.showdown['back_default']} alt=''></img>
           <div className="moves">
-            <h3>Moves:</h3>
+            <h4>Moves:</h4>
             {chosenPokemon.moves.slice(0, 4).map((move) => (
-              <li key={move.move.name} onClick={() => {
+              <ul className='move' key={move.move.name} onClick={() => {
                 setEnemyHP(enemyHP - dealRandomDamage(20));
                 setFriendlyHP(friendlyHP - dealRandomDamage(15));
-              }}> {move.move.name} </li>
+              }}> {move.move.name} </ul>
             ))}
-            <button onClick={() => {
+            <button className='battleRunButton' onClick={() => {
               setSelectedAreaURL(null);
               setSelectedCityURL(null);
               setChosenPokemon(null);
-            }}>Run you fools!</button>
+            }}>Run away!</button>
             <h2>HP: {friendlyHP}</h2>
           </div>
         </div>

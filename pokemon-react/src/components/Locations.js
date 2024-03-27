@@ -12,14 +12,17 @@ export default function Locations(props) {
 
 
   return (
-    <div>
-      {locations.map((location, index) => (
-        <div key={index} onClick={() => {
-          setSelectedCityURL(location.url);
-        }}>
-          <h2>{convertCityNames(location.name)}</h2>
-        </div>
-      ))}
+    <div className='location'>
+      <h1>Pokemon Towns</h1>
+      <div className='townContainer'>
+        {locations.map((location, index) => (
+          <div key={index} onClick={() => {
+            setSelectedCityURL(location.url);
+          }}>
+            <h2>{convertCityNames(location.name)}</h2>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

@@ -42,14 +42,14 @@ function App() {
               setEnemy(null);
             }} >RUN AWAY </button></div>) :
           selectedCityURL ?
-            (<><h1>Town areas</h1>  
+            (<><h1>Town areas</h1>
               <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/>
               <button onClick={() => {
                 setSelectedAreaURL(null);
                 setSelectedCityURL(null);
               }}> Go back </button> </>)  :
             (pokemonLocation &&
-          (<><h1>Pokemon Towns</h1>
+          (<>
             <Locations locations={pokemonLocation} setSelectedCityURL={setSelectedCityURL}/></>))}
     </div>
   );
