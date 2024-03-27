@@ -12,12 +12,12 @@ export default function Locations(props) {
 
 
   return (
-    <div>
+    <div className='location'>
       {locations.map((location, index) => (
         <div key={index} onClick={() => {
           setSelectedCityURL(location.url);
         }}>
-          <h2>{convertCityNames(location.name)}</h2>
+          <h2 className='locations'>{convertCityNames(location.name)}</h2>
         </div>
       ))}
     </div>

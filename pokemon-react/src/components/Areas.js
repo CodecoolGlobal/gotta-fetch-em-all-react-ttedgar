@@ -8,7 +8,7 @@ function convertCityNames(area) {
 }
 
 
-function Areas( {selectedCityURL, setSelectedAreaURL, selectedAreaURL} ) {
+function Areas( {selectedCityURL, setSelectedAreaURL} ) {
   const [areas, setAreas] = useState([]);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function Areas( {selectedCityURL, setSelectedAreaURL, selectedAreaURL} ) {
           <div key={area.name} onClick={() => {
             setSelectedAreaURL(area.url);
           }}>
-            <h2> {convertCityNames(area.name)} </h2>
+            <h2 className='locations'> {convertCityNames(area.name)} </h2>
           </div>
         )) :
         <div>
