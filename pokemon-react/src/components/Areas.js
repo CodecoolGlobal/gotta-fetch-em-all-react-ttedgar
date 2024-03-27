@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 
 function convertCityNames(area) {
-  const replaceLocName = area.replace('-', ' ');
+  const replaceLocName = area.replaceAll('-', ' ');
   const toReturnName = replaceLocName[0].toUpperCase() + replaceLocName.substring(1);
   return toReturnName;
 }
@@ -34,7 +34,7 @@ function Areas( {selectedCityURL, setSelectedAreaURL, selectedAreaURL} ) {
           </div>
         )) :
         <div>
-          <h2> Location has no pokemons </h2>
+          <h2> This location doesn't seem to have any pokémon </h2>
         </div>
       }
     </div>

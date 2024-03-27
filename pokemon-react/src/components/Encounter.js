@@ -30,6 +30,7 @@ function Encounter({ selectedAreaURL }) {
     <div>
       {(pokemon && encounter) ?
         (<>
+          <h1>POKEMON!</h1>
           <img src={pokemon.sprites.other.showdown['front_default']}/>
           <h2>Le wild {pokemon.name} appears!</h2>
         </>) :

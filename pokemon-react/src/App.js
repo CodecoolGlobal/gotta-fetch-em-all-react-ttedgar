@@ -22,12 +22,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Pokemon Towns</h1>
       {selectedAreaURL ?
         (<Encounter selectedAreaURL={selectedAreaURL}/>) :
         selectedCityURL ?
-          (<Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/>) :
-          (pokemonLocation && <Locations locations={pokemonLocation} selectedCityURL={selectedCityURL} setSelectedCityURL={setSelectedCityURL}/>)}
+          (<><h1>Town areas</h1>
+            <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/></>) :
+          (pokemonLocation &&
+          (<><h1>Pokemon Towns</h1>
+            <Locations locations={pokemonLocation} setSelectedCityURL={setSelectedCityURL}/></>))}
     </div>
   );
 }
