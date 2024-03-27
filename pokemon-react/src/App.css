@@ -48,3 +48,25 @@
   padding-left: 50px;
   padding-right: 50px;
 }
+
+.yourPokemon {
+  position: fixed;
+  bottom: 25%;
+  left: 25%;
+  padding: 20px;
+}
+
+.enemy {
+  position: fixed;
+  bottom: 65%;
+  left: 65%;
+  padding: 20px;
+}
+
+.moves {
+  margin-top: 10px;
+}
+
+img {
+  height: 120px;
+}

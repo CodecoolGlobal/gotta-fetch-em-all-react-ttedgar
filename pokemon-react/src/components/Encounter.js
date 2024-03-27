@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Encounter({ selectedAreaURL }) {
+function Encounter({ selectedAreaURL, setEnemy }) {
   const [encounter, setEncounter] = useState(null);
   const [pokemon, setPokemon] = useState(null);
 
@@ -13,6 +13,7 @@ function Encounter({ selectedAreaURL }) {
       const pokemonResponse = await fetch(randomPokemon.pokemon.url);
       const pokemonData = await pokemonResponse.json();
       setPokemon(pokemonData);
+      setEnemy(pokemonData);
       return data["pokemon_encounters"];
     }
     fetchData(selectedAreaURL);
@@ -30,7 +31,7 @@ function Encounter({ selectedAreaURL }) {
         (<>
           <h1>POKEMON!</h1>
           <img src={pokemon.sprites.other.showdown['front_default']} alt=""/>
-          <h2>Le wild {pokemon.name} appears!</h2>
+          <h2>Le wild {pokemon.name[0].toUpperCase() + pokemon.name.substring(1)} appears!</h2>
         </>) :
         <h2>Loading...</h2>
       }

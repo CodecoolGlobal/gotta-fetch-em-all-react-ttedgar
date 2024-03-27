@@ -22,8 +22,8 @@ function Starters({ setChosenPokemon }) {
       <div className='Starters'>
         {starter.map((pokemon) => (
           <div key={pokemon.name} className='Starter' onClick={() => setChosenPokemon(pokemon)}>
-            <h4>{pokemon.name}</h4>
-            <img src={pokemon.sprites.other.showdown['front_default']} alt=''></img>
+            <h4>{pokemon.name[0].toUpperCase() + pokemon.name.substring(1)}</h4>
+            <img src={pokemon.sprites.other.showdown['front_default']} alt='' className='yourPokemonImage'></img>
           </div>
         ))}
       </div>

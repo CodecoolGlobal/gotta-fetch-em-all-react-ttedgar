@@ -12,6 +12,7 @@ function App() {
   const [selectedCityURL, setSelectedCityURL] = useState(null);
   const [selectedAreaURL, setSelectedAreaURL] = useState(null);
   const [chosenPokemon, setChosenPokemon] = useState(null);
+  const [enemy, setEnemy] = useState(null);
 
   useEffect(() => {
     async function fetchData(pokemonLocation) {
@@ -27,10 +28,10 @@ function App() {
     <div className="App">
       { chosenPokemon ?
         (<div>
-          <Battle chosenPokemon={chosenPokemon}/>
+          <Battle chosenPokemon={chosenPokemon} enemy={enemy} setChosenPokemon={setChosenPokemon} setSelectedCityURL={setSelectedCityURL} setSelectedAreaURL={setSelectedAreaURL}/>
         </div>) :
         selectedAreaURL ?
-          (<div><Encounter selectedAreaURL={selectedAreaURL}/>
+          (<div><Encounter selectedAreaURL={selectedAreaURL} setEnemy={setEnemy}/>
             <Starters setChosenPokemon={setChosenPokemon}/></div>) :
           selectedCityURL ?
             (<><h1>Town areas</h1>
