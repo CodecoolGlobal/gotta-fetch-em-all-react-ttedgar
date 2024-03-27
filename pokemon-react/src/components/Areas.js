@@ -28,7 +28,6 @@ function Areas( {selectedCityURL, setSelectedAreaURL, selectedAreaURL} ) {
         areas.map((area) => (
           <div key={area.name} onClick={() => {
             setSelectedAreaURL(area.url);
-            console.log(selectedAreaURL);
           }}>
             <h2> {convertCityNames(area.name)} </h2>
           </div>

@@ -12,9 +12,7 @@ function Encounter({ selectedAreaURL }) {
       const randomPokemon = getRandomPokemon(encounters);
       const pokemonResponse = await fetch(randomPokemon.pokemon.url);
       const pokemonData = await pokemonResponse.json();
-      console.log(pokemonData);
       setPokemon(pokemonData);
-      console.log(pokemon);
       return data["pokemon_encounters"];
     }
     fetchData(selectedAreaURL);
@@ -31,7 +29,7 @@ function Encounter({ selectedAreaURL }) {
       {(pokemon && encounter) ?
         (<>
           <h1>POKEMON!</h1>
-          <img src={pokemon.sprites.other.showdown['front_default']}/>
+          <img src={pokemon.sprites.other.showdown['front_default']} alt=""/>
           <h2>Le wild {pokemon.name} appears!</h2>
         </>) :
         <h2>Loading...</h2>

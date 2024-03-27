@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Locations from './components/Locations';
 import Areas from './components/Areas';
 import Encounter from './components/Encounter';
+import Starters from './components/Starters';
 
 
 function App() {
@@ -23,11 +24,11 @@ function App() {
   return (
     <div className="App">
       {selectedAreaURL ?
-        (<Encounter selectedAreaURL={selectedAreaURL}/>) :
+        (<div><Encounter selectedAreaURL={selectedAreaURL}/>
+          <Starters/></div>) :
         selectedCityURL ?
-          (<>
-            <><h1>Town areas</h1>
-              <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/></>
+          (<><h1>Town areas</h1>
+            <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/>
             <button onClick={() => {
               setSelectedAreaURL(null);
               setSelectedCityURL(null);
