@@ -25,8 +25,13 @@ function App() {
       {selectedAreaURL ?
         (<Encounter selectedAreaURL={selectedAreaURL}/>) :
         selectedCityURL ?
-          (<><h1>Town areas</h1>
-            <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/></>) :
+          (<>
+            <><h1>Town areas</h1>
+              <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/></>
+            <button onClick={() => {
+              setSelectedAreaURL(null);
+              setSelectedCityURL(null);
+            }} >I'm lost lol. Go back</button> </>)  :
           (pokemonLocation &&
           (<><h1>Pokemon Towns</h1>
             <Locations locations={pokemonLocation} setSelectedCityURL={setSelectedCityURL}/></>))}
