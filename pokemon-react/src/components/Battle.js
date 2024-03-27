@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import rocketGif from './rocket.gif';
 
 
-function Battle({ chosenPokemon, enemy, setChosenPokemon, setSelectedCityURL, setSelectedAreaURL, setCapturedPoke}) {
+function Battle({ chosenPokemon, enemy, setChosenPokemon, setSelectedCityURL, setSelectedAreaURL, setCapturedPokes, capturedPokes}) {
   const [enemyHP, setEnemyHP] = useState(100);
   const [friendlyHP, setFriendlyHP] = useState(100);
   const [captured, setCaptured] = useState(false);
@@ -24,7 +25,11 @@ function Battle({ chosenPokemon, enemy, setChosenPokemon, setSelectedCityURL, se
                 setFriendlyHP(friendlyHP - dealRandomDamage(15));
               }}> {move.move.name} </li>
             ))}
-            <button className='runButton' >Fussatok bolondok</button>
+            <button onClick={() => {
+              setSelectedAreaURL(null);
+              setSelectedCityURL(null);
+              setChosenPokemon(null);
+            }}>Run you fools!</button>
             <h2>HP: {friendlyHP}</h2>
           </div>
         </div>
@@ -38,20 +43,20 @@ function Battle({ chosenPokemon, enemy, setChosenPokemon, setSelectedCityURL, se
             <button onClick={() => {
               setCaptured(true);
               setEnemyHP(-1);
-              setCapturedPoke(enemy);
+              setCapturedPokes(capturedPokes.concat([enemy]));
             }}>Capture</button>
             <button onClick={() => {
               setKilled(true);
               setEnemyHP(-1);
             }}>Kill</button></>) :
-          killed ? (<><img src={chosenPokemon.sprites.versions["generation-v"]["black-white"]["animated"]["front_default"]} alt=''></img>
+          killed ? (<><img src={rocketGif} alt=''></img>
             <h2>You killed {enemy.name[0].toUpperCase() + enemy.name.substring(1)}</h2>
             <button onClick={() => {
               setChosenPokemon(null);
               setSelectedAreaURL(null);
               setSelectedCityURL(null);
             }}>Go to next town</button></>) :
-            captured ? (<><img src={chosenPokemon.sprites.versions["generation-v"]["black-white"]["animated"]["front_default"]} alt=''></img>
+            captured ? (<><img src={rocketGif} alt=''></img>
               <h2>You captured {enemy.name[0].toUpperCase() + enemy.name.substring(1)}</h2>
               <button onClick={() => {
                 setChosenPokemon(null);

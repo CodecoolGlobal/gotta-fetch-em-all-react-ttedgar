@@ -13,7 +13,7 @@ function App() {
   const [selectedAreaURL, setSelectedAreaURL] = useState(null);
   const [chosenPokemon, setChosenPokemon] = useState(null);
   const [enemy, setEnemy] = useState(null);
-  const [capturedPoke, setCapturedPoke] = useState([]);
+  const [capturedPokes, setCapturedPokes] = useState([]);
 
 
   useEffect(() => {
@@ -30,19 +30,18 @@ function App() {
     <div className="App">
       { chosenPokemon ?
         (<div>
-          <Battle chosenPokemon={chosenPokemon} enemy={enemy} setChosenPokemon={setChosenPokemon} setSelectedCityURL={setSelectedCityURL} setSelectedAreaURL={setSelectedAreaURL} setCapturedPoke={setCapturedPoke}/>
+          <Battle chosenPokemon={chosenPokemon} enemy={enemy} setChosenPokemon={setChosenPokemon} setSelectedCityURL={setSelectedCityURL} setSelectedAreaURL={setSelectedAreaURL} setCapturedPokes={setCapturedPokes} capturedPokes={capturedPokes}/>
         </div>) :
         selectedAreaURL ?
           (<div><Encounter selectedAreaURL={selectedAreaURL} setEnemy={setEnemy}/>
-            <Starters setChosenPokemon={setChosenPokemon} capturedPoke={capturedPoke}/>
-            <button className='runButton' onClick={() => {
+            <Starters setChosenPokemon={setChosenPokemon} capturedPokes={capturedPokes}/>
+            <button onClick={() => {
               setSelectedAreaURL(null);
               setSelectedCityURL(null);
               setChosenPokemon(null);
-              setEnemy(null);
             }} >Fussatok bolondok</button></div>) :
           selectedCityURL ?
-            (<><h1>Town areas</h1>
+            (<><h1>Town areas</h1>  
               <Areas selectedCityURL={selectedCityURL} setSelectedAreaURL={setSelectedAreaURL} selectedAreaURL={selectedAreaURL}/>
               <button onClick={() => {
                 setSelectedAreaURL(null);
