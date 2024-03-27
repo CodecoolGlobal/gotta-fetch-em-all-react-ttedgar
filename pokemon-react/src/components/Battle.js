@@ -22,13 +22,14 @@ function Battle({ chosenPokemon, enemy, setChosenPokemon, setSelectedCityURL, se
                 setFriendlyHP(friendlyHP - dealRandomDamage(15));
               }}> {move.move.name} </li>
             ))}
-            <h4>HP: {friendlyHP}</h4>
+            <button className='runButton' >Fussatok bolondok</button>
+            <h2>HP: {friendlyHP}</h2>
           </div>
         </div>
         <div className='enemy'>
           <h3>{enemy.name[0].toUpperCase() + enemy.name.substring(1)}</h3>
           <img src={enemy.sprites.other.showdown['front_default']} alt=''></img>
-          <h4>HP: {enemyHP}</h4>
+          <h2>HP: {enemyHP}</h2>
         </div></>) : (
           <>
             <img src={chosenPokemon.sprites.versions["generation-v"]["black-white"]["animated"]["front_default"]} alt=''></img>
