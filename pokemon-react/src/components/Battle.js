@@ -36,7 +36,7 @@ function Battle({ chosenPokemon, enemy, setChosenPokemon, setSelectedCityURL, se
         <div className='enemy'>
           <h3>{enemy.name[0].toUpperCase() + enemy.name.substring(1)}</h3>
           <img src={enemy.sprites.other.showdown['front_default']} alt=''></img>
-          <h4>HP: {enemyHP}</h4>
+          <h2>HP: {enemyHP}</h2>
         </div></>) :
         (enemyHP > 0 && enemyHP <= 20) ?
           (<><h2>{enemy.name[0].toUpperCase() + enemy.name.substring(1)}'s HP is under 20! Capture, or Defeat!</h2>

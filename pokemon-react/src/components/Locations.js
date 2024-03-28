@@ -15,6 +15,7 @@ export default function Locations(props) {
     <div className='location'>
       <h1>Welcome and start your journey✌️</h1>
       {locations.map((location, index) => (
+
         <div key={index} onClick={() => {
           setSelectedCityURL(location.url);
         }}>

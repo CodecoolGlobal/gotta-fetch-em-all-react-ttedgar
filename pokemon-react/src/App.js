@@ -8,8 +8,9 @@ import Battle from './components/Battle';
 
 
 function App() {
-  const [pokemonLocation, setPokemonLocation] = useState(null);
   const [selectedCityURL, setSelectedCityURL] = useState(null);
+  const [pokemonLocation, setPokemonLocation] = useState(null);
+
   const [selectedAreaURL, setSelectedAreaURL] = useState(null);
   const [chosenPokemon, setChosenPokemon] = useState(null);
   const [enemy, setEnemy] = useState(null);
@@ -48,9 +49,9 @@ function App() {
                 setSelectedAreaURL(null);
                 setSelectedCityURL(null);
               }}> Go back </button> </>)  :
+
             (pokemonLocation &&
-          (<>
-            <Locations locations={pokemonLocation} setSelectedCityURL={setSelectedCityURL}/></>))}
+            <Locations setSelectedCityURL={setSelectedCityURL} locations={pokemonLocation}/>)}
     </div>
   );
 }
